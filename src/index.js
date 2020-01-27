@@ -11,8 +11,13 @@ import {searchRobots, requestRobots} from './reducers';
 import 'tachyons';
 
 const logger = createLogger();
-const rootReducer = combineReducers({searchRobots,requestRobots})
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
+const rootReducer = combineReducers({searchRobots,requestRobots});
+
+// next line is to see the logger in the console
+// const store = createStore(rootReducer, applyMiddleware(thunkMiddleware, logger));
+
+//next line is without logger
+const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
 
 ReactDOM.render(
     <Provider store={store}>
